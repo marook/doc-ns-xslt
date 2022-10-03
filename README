@@ -1,23 +1,9 @@
 doc-ns-xslt is a small XML tree with namespace and XSLT example
 
-The weird thing about it is that the following output is produced when
-executing doc-ns-xslt:
+Compile with
 
-```
-in_mem_doc
-<?xml version="1.0" encoding="UTF-8"?>
-<input xmlns="https://example.org/input"/>
+$ make
 
-in_fs_doc
-<?xml version="1.0" encoding="UTF-8"?>
-<input xmlns="https://example.org/input"/>
+and run with
 
-out_mem_doc
-<?xml version="1.0" encoding="UTF-8"?>
-
-out_fs_doc
-<?xml version="1.0" encoding="UTF-8"?>
-<exo:output xmlns:exo="https://exmaple.org/output" xmlns:exi="https://example.org/input"/>
-```
-
-Why does out_mem_doc have no output element?
+$ ./doc-ns-xslt

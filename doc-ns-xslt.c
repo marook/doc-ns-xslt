@@ -26,7 +26,13 @@ int main(){
     xmlNode *root = xmlNewNode(NULL, BAD_CAST "input");
     assert(root);
     xmlDocSetRootElement(in_mem_doc, root);
-    assert(xmlNewNs(root, BAD_CAST in_ns, NULL));
+    xmlNs *ns = xmlNewNs(root, BAD_CAST in_ns, NULL);
+    assert(ns);
+    // the following xmlSetNs is mandatory so that the in memory
+    // document has the namespace applied. interestingly the written
+    // xml document's input elemens will have the namespace applied
+    // even if we don't call xmlSetNs.
+    xmlSetNs(root, ns);
     print_doc("in_mem_doc", in_mem_doc);
     xmlDoc *in_fs_doc = read_doc("input.xml");
     print_doc("in_fs_doc", in_fs_doc);
